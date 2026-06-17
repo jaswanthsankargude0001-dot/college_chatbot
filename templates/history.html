@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chat History</title>
+</head>
+<form action="/clear-history" method="POST">
+    <button type="submit">Clear All History</button>
+</form>
+<body>
+
+<h1>Chat History</h1>
+
+{% for item in history %}
+
+<div style="border:1px solid #ccc; padding:10px; margin:10px;">
+
+<b>You:</b>
+{{ item.user_message }}
+
+<br><br>
+
+<b>Bot:</b>
+    {{ item.bot_response }}
+    <br>
+<small>{{ item.created_at }}</small>
+</div>
+
+{% endfor %}
+
+<a href="/">Back to Home</a>
+
+</body>
+</html>

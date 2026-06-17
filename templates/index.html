@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>DR.LANKAPALLI BULLAYYA COLLEGE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+<!-- 🔹 NAVBAR -->
+<nav>
+    <div class="menu-btn" onclick="openSidebar()">
+    <i class="fas fa-bars"></i>
+</div>
+    <div class="logo">DR.LANKAPALLI BULLAYYA COLLEGE</div>
+
+    <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About College</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#admissions">Admissions</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#faq">FAQ</a></li>
+</ul>
+
+    <div class="nav-right">
+        <a href="/admin-login">
+    <button class="admin-btn">Admin</button>
+</a>
+       <button class="chat-btn" onclick="openChat()">Start Chat</button>
+</nav>
+<!-- SIDEBAR OVERLAY -->
+<div class="sidebar-overlay" id="sidebarOverlay"
+onclick="closeSidebar()"></div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+
+    <div class="sidebar-top">
+
+        <h2>LBC Menu</h2>
+
+        <button class="close-btn"
+        onclick="closeSidebar()">
+            ✖
+        </button>
+
+    </div>
+
+    <div class="sidebar-links">
+
+        <a href="#home">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+
+        <a href="#about">
+            <i class="fas fa-building"></i>
+            About
+        </a>
+
+        <a href="#courses">
+            <i class="fas fa-book"></i>
+            Courses
+        </a>
+
+        <a href="#admissions">
+            <i class="fas fa-user-graduate"></i>
+            Admissions
+        </a>
+
+        <a href="#faq">
+            <i class="fas fa-circle-question"></i>
+            FAQ
+        </a>
+<a href="#" onclick="openChat()">
+    <i class="fas fa-robot"></i>
+    AI Chat
+</a>
+
+<a href="/history-page">
+    <i class="fas fa-clock-rotate-left"></i>
+    History
+</a>
+
+<div id="historyContainer"></div>
+
+</div>
+
+</div>
+        
+<!-- 🔹 HERO SECTION -->
+<section class="hero" id="home">
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <p class="tag">AI-POWERED ENQUIRY ASSISTANT</p>
+
+        <h1>
+            Welcome to LBC <br>
+            <span>Enquiry System</span>
+        </h1>
+
+        <p class="desc">
+            Get instant answers about courses, admissions, fees, hostel and placements —
+            24/7. No queues, no callbacks.
+        </p>
+
+    </div>
+
+    <div class="stats">
+        <div class="card">70-85%<br><span>Placement Rate</span></div>
+        <div class="card">12+<br><span>Programs</span></div>
+        <div class="card">24/7<br><span>AI Assistant</span></div>
+        <div class="card">₹12-15 LPA<br><span>Highest Package</span></div>
+    </div>
+</section>
+<section class="about" id="about">
+    <div class="about-left">
+        <p class="about-tag">01 — ABOUT COLLEGE</p>
+
+        <h2>
+           A college focused on<br>
+            <span>learning</span> and student success.
+        </h2>
+
+        <p class="about-desc">
+            Established in 1973, Dr. Lankapalli Bullayya College is one of the well-known colleges in Visakhapatnam. 
+            Affiliated with Andhra University and accredited with NAAC ‘A’ Grade, the college provides quality education with experienced faculty, 
+            modern facilities, and good placement support.
+        </p>
+    </div>
+
+    <div class="about-right">
+        <div class="about-card">
+            <i class="fas fa-building"></i>
+            <h4>Modern Campus</h4>
+            <p>Smart classrooms, labs, and library facilities for students.</p>
+        </div>
+
+        <div class="about-card">
+            <i class="fas fa-user-graduate"></i>
+            <h4>Expert Faculty</h4>
+            <p>Skilled faculty members guiding students in academics and careers.</p>
+        </div>
+
+        <div class="about-card">
+            <i class="fas fa-trophy"></i>
+            <h4>Placements</h4>
+            <p>Training and placement opportunities in reputed companies.</p>
+        </div>
+
+        <div class="about-card">
+            <i class="fas fa-book"></i>
+            <h4>Student Activities</h4>
+            <p>Sports, NCC, NSS, cultural events, and personality development programs.</p>
+        </div>
+    </div>
+</section>
+<section class="courses" id="courses">
+
+    <div class="courses-header">
+        <p class="tag">02 — PROGRAMS</p>
+        <h2>Courses & specializations</h2>
+        <p class="desc">
+            Choose from a variety of undergraduate and postgraduate programs designed to support academic excellence and career growth.
+        </p>
+    </div>
+
+    <div class="course-grid">
+
+        <div class="course-card">
+            <h4>B.TECH</h4>
+            <h3>Computer Science Engineering</h3>
+            <p>CSE • ECE • ME • CE • IT • AI & DS</p>
+            <span>4 years </span>
+        </div>
+
+        <div class="course-card">
+            <h4>B.SC</h4>
+            <h3>DEGREE COURSES</h3>
+            <p>B.Sc • B.Com • BBA • BA</p>
+            <span>3 years Undergraduate Programs with Multiple Specializations</span>
+        </div>
+
+        <div class="course-card">
+            <h4>M.SC</h4>
+            <h3>PG COURSES</h3>
+            <p>M.Sc • M.Com • MBA • MCA</p>
+            <span>2 years • 180 seats</span>
+        </div>
+
+        <div class="course-card">
+            <h4>OTHER COURSES</h4>
+            <h3>PROFESSIONAL DEVELOPMENT</h3>
+            <p>Skill Development • Placement Training • Workshops • Seminars</p>
+            <span>Industry-oriented training programs for student success</span>
+        </div>
+
+    </div>
+
+</section>
+<section class="admissions" id="admissions">
+
+    <p class="tag">03 — ADMISSIONS</p>
+    <h2>Application process</h2>
+    <p class="desc">Admissions are open for eligible students seeking quality education and career opportunities at Dr. Lankapalli Bullayya College.</p>
+
+    <div class="admissions-container">
+
+        <!-- LEFT SIDE (STEPS) -->
+        <div class="steps">
+
+            <div class="step-card">
+                <h4>STEP 01</h4>
+                <p>Apply for the desired course through the college admission process.</p>
+            </div>
+
+            <div class="step-card">
+                <h4>STEP 02</h4>
+                <p>Submit required educational certificates and ID proof.</p>
+            </div>
+
+            <div class="step-card">
+                <h4>STEP 03</h4>
+                <p>Document verification and eligibility confirmation.</p>
+            </div>
+
+            <div class="step-card">
+                <h4>STEP 04</h4>
+         
+                <p>Course selection based on merit and availability of seats.</p>
+            </div>
+
+            <div class="step-card">
+                <h4>STEP 05</h4>
+           
+                <p>Pay the admission and course fee.</p>
+            </div>
+
+            <div class="step-card">
+                <h4>STEP 06</h4>
+                <h3>Confirm Seat</h3>
+                <p>Admission confirmed and classes commencement details shared.</p>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE (FEE CARD) -->
+        <div class="fee-card">
+            <h3>Fee Structure</h3>
+
+            <p>B.Tech <span>₹95,000 / year</span></p>
+            <p>B.Sc / B.Com <span>₹35,000 / year</span></p>
+            <p>BBA / BCA <span>₹55,000 / year</span></p>
+            <p>MBA / MCA / MSC <span>₹85,000 / year</span></p>
+            <p>M.Tech <span>₹1116, / year</span></p>
+
+            <div class="extra">
+                <p>Hostel: ₹65K–85K / yr</p>
+                <p>Scholarships up to 50%</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- 🔹 CONTACT SECTION -->
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+
+        <div class="contact-left">
+            <p class="contact-tag">06 — CONTACT</p>
+            <h2>Talk to admissions.</h2>
+            <p>
+                Our admissions team responds within one working day.
+                For instant answers, use the chatbot.
+            </p>
+        </div>
+
+        <div class="contact-right">
+
+            <div class="contact-card">
+                <i class="fas fa-phone"></i>
+                <h4>PHONE</h4>
+                <p>+91-8074342346</p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h4>EMAIL</h4>
+                <p>info@bullayyacollege.org</p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>ADDRESS</h4>
+                <p>
+                    Survey No:44, New Resapuvanipalem,
+Visakhapatnam-530013,
+Andhra Pradesh, India.
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-clock"></i>
+                <h4>OFFICE HOURS</h4>
+                <p>Mon–Sat: 09:00 AM – 5:00 PM</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section" id="faq">
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+
+        <button class="faq-question">
+            What courses are available?
+            <span>⌄</span>
+        </button>
+
+        <div class="faq-answer">
+            <p>We offer B.Tech, BCA, BBA, MBA, MCA and more courses.</p>
+        </div>
+
+    </div>
+
+    <div class="faq">
+
+        <button class="faq-question">
+            What is the fee structure?
+            <span>⌄</span>
+        </button>
+
+        <div class="faq-answer">
+            <p>B.Tech fee is ₹1.2 lakh/year.</p>
+        </div>
+
+    </div>
+
+    <div class="faq">
+
+        <button class="faq-question">
+            Is hostel facility available?
+            <span>⌄</span>
+        </button>
+
+        <div class="faq-answer">
+            <p>Hostel available for boys and girls.</p>
+        </div>
+
+    </div>
+
+    <div class="faq">
+
+        <button class="faq-question">
+            Are placements available?
+            <span>⌄</span>
+        </button>
+
+        <div class="faq-answer">
+            <p>95% placement with top companies like TCS and Infosys.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="chat-container" id="chatContainer">
+
+    <!-- HEADER -->
+    <div class="chat-header">
+
+        <div class="chat-left">
+
+            <div class="bot-logo">
+                
+            </div>
+
+            <div>
+                <h3>LBC Assistant</h3>
+                <p>Welcome to College Enquiry</p>
+            </div>
+
+        </div>
+
+        <div class="chat-actions">
+            <span onclick="maximizeChat()">⬜</span>
+            <span onclick="openChat()">✖</span>
+        </div>
+
+    </div>
+
+    <!-- CHAT BODY -->
+    <div class="chat-box" id="chatBox">
+
+        <!-- DEFAULT MESSAGE -->
+<div class="bot-msg">
+    👋 Hello! Welcome to LBC College.
+    <br><br>
+    Ask me about:
+    <br>
+    • Courses
+    <br>
+    • Admissions
+    <br>
+    • Fees
+    <br>
+    • Placements
+</div>
+    </div>
+
+   
+    <!-- INPUT -->
+    <div class="chat-input">
+
+        <input
+            type="text"
+            id="userInput"
+            placeholder="Type your message..."
+        >
+
+        <button onclick="sendMessage()">
+            ➤
+        </button>
+
+    </div>
+
+</div>
+
+<!-- 🔹 FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <!-- LEFT -->
+        <div class="footer-col">
+            <h3>DR.Lankapalli Bullayya College</h3>
+            <p>
+                Empowering students with quality education, innovation,
+                and career opportunities.
+            </p>
+        </div>
+
+        <!-- LINKS -->
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p>+91-8074342346</p>
+            <p>info@bullayyacollege.org</p>
+            <p>Survey No:44, New Resapuvanipalem,
+Visakhapatnam-530013,
+Andhra Pradesh, India.</p>
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="footer-bottom">
+        <p>© 2026 Lankapalli bullayya college. All rights reserved.</p>
+    </div>
+</footer>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
