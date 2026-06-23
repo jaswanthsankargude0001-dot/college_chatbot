@@ -2,3 +2,4 @@ nltk
 spacy
 flask
 gunicorn
+mysql-connector-python
