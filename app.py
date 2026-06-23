@@ -126,7 +126,6 @@ def admin_login():
 # ADMIN PANEL
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
-
     if not session.get('admin'):
         return redirect('/admin-login')
 
@@ -166,9 +165,68 @@ window.location.href="/admin";
 </script>
 
 '''
-    return render_template("admin.html")
+
+    cursor.execute("SELECT * FROM faq")
+    faqs = cursor.fetchall()
+
+    return render_template("admin.html", faqs=faqs)
+
+@app.route('/delete-faq/<int:id>')
+def delete_faq(id):
+
+    if not session.get('admin'):
+        return redirect('/admin-login')
+
+    cursor.execute(
+        "DELETE FROM faq WHERE id=%s",
+        (id,)
+    )
+
+    db.commit()
+
+    return redirect('/admin')
+
+@app.route('/edit-faq/<int:id>', methods=['GET', 'POST'])
+def edit_faq(id):
+
+    if not session.get('admin'):
+        return redirect('/admin-login')
+
+    if request.method == 'POST':
+
+        question = request.form['question']
+        answer = request.form['answer']
+
+        cursor.execute(
+            "UPDATE faq SET question=%s, answer=%s WHERE id=%s",
+            (question, answer, id)
+        )
+
+        db.commit()
+
+        return redirect('/admin')
+
+    cursor.execute(
+        "SELECT * FROM faq WHERE id=%s",
+        (id,)
+    )
+
+    faq = cursor.fetchone()
+
+    return render_template(
+        "edit_faq.html",
+        faq=faq
+    )
+
+@app.route('/logout')
+def logout():
+
+    session.pop('admin', None)
+
+    return redirect('/admin-login')
 
 # RUN
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
+   
    

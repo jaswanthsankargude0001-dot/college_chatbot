@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit FAQ</title>
+</head>
+<body>
+
+<h2>Edit FAQ</h2>
+
+<form method="POST">
+
+    <input
+        type="text"
+        name="question"
+        value="{{ faq.question }}"
+        required
+    >
+
+    <br><br>
+
+    <textarea
+        name="answer"
+        rows="5"
+        cols="50"
+        required
+    >{{ faq.answer }}</textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Update FAQ
+    </button>
+
+</form>
+
+<br>
+
+<a href="/admin">Back to Admin</a>
+
+</body>
+</html>

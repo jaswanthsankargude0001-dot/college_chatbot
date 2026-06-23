@@ -127,7 +127,12 @@
 
         <h2>Admin Panel</h2>
 
-        <a href="/">⬅ Back to Home</a>
+        
+<a href="/">⬅ Back to Home</a>
+
+<br>
+
+<a href="/logout">🚪 Logout</a>
 
         <form method="POST">
 
@@ -149,7 +154,48 @@
             </button>
 
         </form>
+<hr style="margin:20px 0;">
 
+<h3>FAQ List</h3>
+
+{% for faq in faqs %}
+
+<div style="
+margin-top:10px;
+padding:10px;
+border:1px solid #ddd;
+border-radius:8px;">
+
+<b>{{ faq.question }}</b>
+
+<br><br>
+
+{{ faq.answer }}
+<br><br>
+
+<a href="/edit-faq/{{ faq.id }}"
+style="
+background:green;
+color:white;
+padding:8px 12px;
+border-radius:5px;
+text-decoration:none;
+margin-right:10px;">
+Edit
+</a>
+
+<a href="/delete-faq/{{ faq.id }}"
+style="
+background:red;
+color:white;
+padding:8px 12px;
+border-radius:5px;
+text-decoration:none;">
+Delete
+</a>
+</div>
+
+{% endfor %}
     </div>
 
 </body>

@@ -1,4 +1,25 @@
+import spacy
+import nltk
+from nltk.corpus import stopwords
 import mysql.connector
+nlp = spacy.load("en_core_web_sm")
+
+nltk.download("stopwords")
+
+stop_words = set(stopwords.words("english"))
+
+def preprocess(text):
+
+    doc = nlp(text.lower())
+
+    words = []
+
+    for token in doc:
+
+        if token.text not in stop_words and not token.is_punct:
+            words.append(token.lemma_)
+
+    return " ".join(words)
 
 def get_bot_response(message):
 
@@ -57,6 +78,11 @@ Seats: {course[4]}
 
     faqs = cursor.fetchall()
 
+    user_doc = nlp(preprocess(msg))
+
+    best_answer = None
+    best_score = 0
+
     for faq in faqs:
 
         question = str(faq[0]).lower().replace("_", " ").strip()
@@ -65,20 +91,31 @@ Seats: {course[4]}
         if answer == "":
             continue
 
-        msg_words = msg.split()
-        question_words = question.split()
+        faq_doc = nlp(preprocess(question))
 
-        if any(word in question_words for word in msg_words):
+        score = len(
+    set(preprocess(msg).split())
+    &
+    set(preprocess(question).split())
+)
+        if question in msg:
+            score += 0.5
 
-            cursor.execute(
-                "INSERT INTO student_queries(user_message, bot_response) VALUES(%s,%s)",
-                (message, answer)
-            )
+        if score > best_score:
+            best_score = score
+            best_answer = answer
 
-            db.commit()
-            db.close()
+    if best_score >= 1:
 
-            return answer
+        cursor.execute(
+            "INSERT INTO student_queries(user_message, bot_response) VALUES(%s,%s)",
+            (message, best_answer)
+        )
+
+        db.commit()
+        db.close()
+
+        return best_answer
 
     # ======================
     # UNKNOWN QUESTIONS
