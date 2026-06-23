@@ -3,3 +3,4 @@ spacy
 flask
 gunicorn
 mysql-connector-python
+en-core-web-sm
