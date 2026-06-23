@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, jsonify, redirect, session
 import mysql.connector
-import spacy
-from wasabi import msg
-nlp = spacy.load("en_core_web_sm")
+
 
 def detect_intent(user_message):
     message = user_message.lower()
