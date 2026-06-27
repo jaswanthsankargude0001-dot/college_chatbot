@@ -43,6 +43,7 @@ function sendMessage() {
 function openChat() {
 
     let chat = document.getElementById("chatContainer");
+    let nav = document.querySelector("nav");
 
     if(chat.style.display === "flex"){
 
@@ -51,9 +52,12 @@ function openChat() {
     }else{
 
         chat.style.display = "flex";
+
+        let navHeight = nav.offsetHeight;
+
+        chat.style.top = (navHeight + 10) + "px";
     }
 }
-
 
 // ENTER KEY
 document.getElementById("userInput")
@@ -73,6 +77,15 @@ function maximizeChat(){
     if(chat.classList.contains("full-screen")){
 
         chat.classList.remove("full-screen");
+
+        // Clear inline styles
+        chat.style.top = "";
+        chat.style.left = "";
+        chat.style.right = "";
+        chat.style.bottom = "";
+        chat.style.width = "";
+        chat.style.height = "";
+        chat.style.transform = "";
 
     }else{
 

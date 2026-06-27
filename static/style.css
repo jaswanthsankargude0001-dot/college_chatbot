@@ -709,26 +709,23 @@ margin-bottom:15px;
 .chat-container{
     position: fixed;
 
-    top: 80px;
+    top: 90px;
     right: 20px;
+    bottom: 20px;
 
-    width: 380px;
-    height: 450px;
+    width: 390px;
+    height: auto;
 
     display: none;
     flex-direction: column;
 
     background: #fff;
-
     border-radius: 25px;
-
     overflow: hidden;
 
     z-index: 9999;
-
     box-shadow: 0 10px 35px rgba(0,0,0,0.2);
 }
-
 .chat-header{
     min-height: 80px;
 
@@ -834,7 +831,7 @@ margin-bottom:15px;
 
     padding: 14px;
 
-    border: 1px solid #ddd;
+    border: 1px solid#ddd;
     border-radius: 30px;
 
     outline: none;
@@ -852,15 +849,18 @@ margin-bottom:15px;
 }
 
 .full-screen{
-    width: 95% !important;
-    height: 90vh !important;
+    position: fixed !important;
 
-    top: 80px !important;
-    left: 50% !important;
+    top: 90px !important;
+    left: 20px !important;
+    right: 20px !important;
+    bottom: 20px !important;
 
-    transform: translateX(-50%);
+    width: auto !important;
+    height: auto !important;
+
+    transform: none !important;
 }
-
 /* =========================================
    RESPONSIVE
 ========================================= */
@@ -1049,38 +1049,24 @@ h3
     }
 
     /* CHATBOT MOBILE */
-.chat-container{
+.full-screen{
 
-    width: 95%;
-    height: 80vh;
+    position: fixed !important;
 
-    top: 100px;
-    left: 50%;
+    top: 90px !important;
 
-    transform: translateX(-50%);
+    left: 50% !important;
 
-    border-radius: 20px;
+    transform: translateX(-50%) !important;
+
+    width: 95% !important;
+
+    height: calc(100vh - 110px) !important;
+
+    bottom: 20px !important;
+
+    border-radius: 20px !important;
 }
-
-    .chat-header{
-        border-radius: 0;
-    }
-
-    .chat-box{
-        flex: 1;
-    }
-
-    .full-screen{
-        width: 95% !important;
-        height: 85vh !important;
-
-        top: 90px !important;
-        left: 50% !important;
-
-        transform: translateX(-50%) !important;
-    }
-}
-
 /* SIDEBAR */
 
 .menu-btn{
@@ -1201,4 +1187,5 @@ h3
     background:#2563eb;
 
     color:white;
+}
 }

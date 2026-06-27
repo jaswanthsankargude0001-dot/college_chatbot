@@ -121,7 +121,7 @@ Seats: {course[4]}
     # UNKNOWN QUESTIONS
     # ======================
 
-    response = "Please contact admin for more details."
+    response = "I'm sorry, I don't have information about that. Please contact our admin at jaswanthsankargude0001@gmail.com or call +91-8074342346 for assistance.."
 
     cursor.execute(
         "INSERT INTO student_queries(user_message, bot_response) VALUES(%s,%s)",
